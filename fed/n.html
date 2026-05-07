@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>To-Do List</title>
+</head>
+<body>
+
+    <h2>My Tasks</h2>
+
+    <!-- Input + Button -->
+    <input type="text" id="taskInput" >
+    <button onclick="addTask()">Add </button>
+
+    <!-- Task List -->
+    <ul id="taskList">
+     
+    </ul>
+
+    <script>
+        // Function for existing + new tasks
+        function addCheckboxEvent(checkbox) {
+            checkbox.addEventListener("change", function () {
+          
+                if (this.checked) {
+                    text.style.textDecoration = "line-through";
+                } else {
+                    text.style.textDecoration = "none";
+                }
+            });
+        }
+
+      
+
+        // Add new task
+        function addTask() {
+            let input = document.getElementById("taskInput");
+            let task = input.value;
+
+           
+            let li = document.createElement("li");
+
+            let checkbox = document.createElement("input");
+            checkbox.type = "checkbox";
+
+            let span = document.createElement("span");
+            span.textContent = task;
+
+            // Add event to new checkbox
+            addCheckboxEvent(checkbox);
+
+            li.appendChild(checkbox);
+            li.appendChild(span);
+
+            document.getElementById("taskList").appendChild(li);
+
+            input.value = "";
+        }
+    </script>
+
+</body>
+</html>

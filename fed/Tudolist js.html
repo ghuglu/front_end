@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>To-Do-List</title>
+</head>
+<body>
+<input type="text" id="taskInput" placeholder="Enter task">
+<button onclick="addTask()">Add</button>
+
+<ul id="taskList"></ul>
+<script>
+function addTask() {
+    const input = document.getElementById("taskInput");
+    const text =input.value.trim();
+    
+
+            if(text ==="") return;
+                
+            const li= document.createElement("li");
+
+            const checkbox = document.createElement("input");
+            checkbox.type = "checkbox";
+
+            const span = document.createElement("span");
+            span.textContent = ""+ text;
+
+           
+               checkbox.onchange = function(){
+                    if(this.checked){
+                        span.style.textDecoration="line-through";
+                    }else{
+                        span.style.textDecoration="none";
+                    }
+                };
+
+                const deletebtn = document.createElement("button");
+                deletebtn.textContent = "Delete";
+                deletebtn.onclick = function(){
+                    li.remove();
+                };
+
+                li.appendChild(checkbox);
+                  li.appendChild(span);
+                    li.appendChild(deletebtn);
+
+                    document.getElementById("taskList").appendChild(li);
+
+                    input.value="";
+        }
+</script>
+</body>
+</html>

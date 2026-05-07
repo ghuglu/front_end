@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h2>The setinterval method</h2>
+    <p id="clock"></p>
+    <script>
+        setInterval(showtime,4000);
+        function showtime(){
+            const a = new Date();
+            document.getElementById("clock").innerHTML= a.getHours()+":"+a.getMinutes()+":"+a.getSeconds()
+        }
+    </script>
+</body>
+</html>
